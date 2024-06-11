@@ -2,7 +2,7 @@
 
 # DB featues
 
-- frequently accessed in ram
+- frequently accessed copy in the ram
 - Querying is easy
 - CRUD
 - Backups are inbuilt
@@ -167,3 +167,146 @@ LIMIT 2 OFFSET 2;
 ```
 
 ![alt text](<ex-5 review1.png>)
+
+# Database Issue:
+
+- DRY issue
+
+# Normalization
+
+![alt text](<1 normal form.png>)
+
+# Ex-6
+
+Find the domestic and international sales for each movie ✓
+
+```sql
+SELECT title, domestic_sales, international_sales
+FROM movies
+  JOIN boxoffice
+    ON movies.id = boxoffice.movie_id;
+```
+
+Show the sales numbers for each movie that did better internationally rather than domestically ✓
+
+```sql
+SELECT title, domestic_sales, international_sales
+FROM movies
+  JOIN boxoffice
+    ON movies.id = boxoffice.movie_id
+WHERE international_sales > domestic_sales;
+```
+
+List all the movies by their ratings in descending order ✓
+
+```sql
+SELECT title
+FROM movies
+  JOIN boxoffice
+    ON movies.id = boxoffice.movie_id
+order by rating desc;
+```
+
+# Ex-7
+
+Find the list of all buildings that have employees ✓
+
+```sql
+SELECT distinct Building FROM employees;
+```
+
+Find the list of all buildings and their capacity ✓
+
+```sql
+SELECT  Building_name , Capacity FROM Buildings;
+```
+
+List all buildings and the distinct employee roles in each building (including empty buildings) ✓
+
+```sql
+SELECT DISTINCT building_name, role
+FROM buildings
+  LEFT JOIN employees
+    ON building_name = building;
+```
+
+# Ex-8
+
+Find the name and role of all employees who have not been assigned to a building
+
+```sql
+SELECT name,role FROM employees
+where building is null;
+```
+
+Find the names of the buildings that hold no employees ✓
+
+```sql
+SELECT building_name FROM Buildings
+left join employees
+on building=Building_name
+where building is null;
+```
+
+![alt text](ex-8.png)
+
+# Ex-9
+
+List all movies and their combined sales in millions of dollars ✓
+
+```sql
+SELECT title,
+    (domestic_sales + international_sales) / 1000000 AS sales
+FROM
+    movies
+INNER JOIN
+    boxoffice
+ON
+    movies.id = boxoffice.movie_id;
+```
+
+List all movies and their ratings in percent ✓
+
+```sql
+SELECT title, rating * 10 AS percent
+FROM movies
+  JOIN boxoffice
+    ON movies.id = boxoffice.movie_id;
+```
+
+List all movies that were released on even number years ✓
+
+```sql
+select title,year
+from movies
+where year % 2 =0;
+```
+
+![alt text](ex-9.png)
+
+# Ex-10
+
+Find the longest time that an employee has been at the studio ✓
+
+```sql
+SELECT MAX(years_employed) as Max_years_employed
+FROM employees;
+```
+
+For each role, find the average number of years employed by employees in that role ✓
+
+```sql
+SELECT role, AVG(Years_employed) as years
+FROM employees
+group by role;
+```
+
+Find the total number of employee years worked in each building ✓
+
+```sql
+SELECT building, SUM(years_employed) as Total_years_employed
+FROM employees
+GROUP BY building;
+```
+
+![alt text](ex-10.png)
