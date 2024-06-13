@@ -168,7 +168,7 @@ LIMIT 2 OFFSET 2;
 
 ![alt text](<ex-5 review1.png>)
 
-# 11-06-2024 || Day-2
+# <span style="color: #FF0000">11-06-2024 | Day-2 | SQL</span>
 
 # Database Issue:
 
@@ -313,7 +313,7 @@ GROUP BY building;
 
 ![alt text](ex-10.png)
 
-# 12-06-2024 || Day-3
+# <span style="color: #FF0000">12-06-2024 | Day- 3| SQL</span>
 
 # Ex-11
 
@@ -476,3 +476,121 @@ drop table BoxOffice;
 ### Completed
 
 ![alt text](completed.png)
+
+# <span style="color: #FF0000">13-06-2024 | Day-4 | SQL</span>
+
+# Data Types
+
+- Integer
+- Float, Double, Real
+- Character, varchar, text
+- Date, Date_time
+- Blob
+
+## Contraints
+
+- Primary Key
+- Foreign Key
+
+  - ![alt text](<fk usage.png>)
+
+- Interger
+
+  - Int - (-2b)
+  - small int (-32k)
+  - big int (-9\*10 power 8)
+
+- Characters
+
+  - Varchar
+
+  - nvarchar
+
+    [`supports unicode values for other language & Emoji's`]
+
+- Decimal
+
+  - float (approx) [H performance]
+  - decimal (exact) [L performance]
+
+- Date
+  - Date
+  - Time
+
+# String functions in DB
+
+- Len
+- Left
+- Right
+- Substring
+- Upper
+- Lower
+
+select len('nikhil') as NameLen;
+
+select left('hello',3) as left_num;
+-- prints left characters of 3 from left
+
+select right('hello',3) as left_num; -- Right
+
+select upper('nikhil') as cap_name; -- upper
+
+select lower('NIKHIL') as cap_name_lower; -- lower
+
+select SUBSTRING('nikhil raj',1,6) as sub; -- substring
+
+- Ltrim
+- Rtrim
+- charIndex
+- Replace
+- concat
+- Replicate
+- Reverse
+
+select ltrim(' nikhil') as trimmer; -- left trim
+
+select rtrim(' nikhil ') as trimmer; -- right trim
+
+select CHARINDEX ('cool','this is really cool') as char_index; -- char index
+
+select CONCAT('nikhil','raj') as con_name; -- cancat
+
+select REPLICATE ('fun',1000000000) as rep; --create duplicate chars
+
+select REPLACE ('ganta is a very good boi','ganta','nikhil') as replace_name -- replace
+
+select REVERSE ('nikhil') as rev_name; -- reverse
+
+# Mathematical
+
+- Abs
+- Power
+- Round
+- Ceiling
+- Floor
+
+select abs(-5) as num -- absolute
+
+select power(2,4) as num_power; -- power
+
+select ROUND(99.51599, 3) as discount_price; -- round
+
+select CEILING (58.9) as top_price; -- ceiling gives top
+
+select floor (58.9) as top_price; -- floor gives bottom
+
+# Date
+
+- GetDate
+- DateAdd
+- DateDIff
+- Format
+- DatePart
+
+select GETDATE() as today_date; -- gets date
+
+select DATEADD (day,3,GETDATE()) as b; --gives the day by adding to the getdate
+
+select DATEDIFF(YEAR, '2003-05-17', GETDATE()) as can_age; -- calculate differecne between dates
+
+select datepart (DAY,getdate()) as a; -- prints month from date
