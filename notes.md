@@ -596,3 +596,11 @@ select DATEADD (day,3,GETDATE()) as b; --gives the day by adding to the getdate
 select DATEDIFF(YEAR, '2003-05-17', GETDATE()) as can_age; -- calculate differecne between dates
 
 select datepart (DAY,getdate()) as a; -- prints month from date
+
+# <span style="color: #FF0000">14-06-2024 | Day-5 | SQL</span>
+
+# Sub-Queries
+
+# Sets
+
+- Union
