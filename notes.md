@@ -484,13 +484,14 @@ drop table BoxOffice;
 - Integer
 - Float, Double, Real
 - Character, varchar, text
-- Date, Date_time
+- Date, Date_time, time
 - Blob
 
 ## Contraints
 
 - Primary Key
 - Foreign Key
+- Not Null
 
   - ![alt text](<fk usage.png>)
 
@@ -516,6 +517,7 @@ drop table BoxOffice;
 - Date
   - Date
   - Time
+  - DateTime
 
 # String functions in DB
 
